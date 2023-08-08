@@ -1,7 +1,13 @@
 import "./App.css";
+import AddNewNote from "./components/AddNewNote";
 function App() {
-  return (<h1>02: NoteApp starter file</h1>
-  <div></div>
+  return (<div className="container">
+    <div className="note-header">note headr</div>
+    <div className="note-app">
+    <AddNewNote/>
+      <div className="note-container">notes</div>
+    </div>
+  </div>
 );
 }
 
