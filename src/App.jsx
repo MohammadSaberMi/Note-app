@@ -3,15 +3,27 @@ import "./App.css";
 import AddNewNote from "./components/AddNewNote";
 import NoteList from "./components/NoteList";
 function App() {
-  const [notes,setNotes]=useState([]);
 
+  const [notes,setNotes] = useState([]);
 
+  const handleNote=(newNote)=>{
+    setNotes((prevNotes)=>[...prevNotes , newNote]);
+  };
+
+   const handleDeleteNote = (id)=>{
+    //const filteredNotes= notes.filter((n)=>n.id!==id);
+    //setNotes(filteredNotes);
+    console.log("as");
+    setNotes(prevNote=>prevNote.filter((n)=>n.id!==id));
+  };
+
+  
   return (<div className="container">
     <div className="note-header">note headr</div>
     <div className="note-app">
-    <AddNewNote setNote = { setNotes } />
+    <AddNewNote  onAddNote={ handleNote } />
       <div className="note-container">
-      <NoteList/>
+      <NoteList notes={notes} onDelete={handleDeleteNote}/>
       </div>
     </div>
   </div>
